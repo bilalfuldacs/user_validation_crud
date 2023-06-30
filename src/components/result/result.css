@@ -1,0 +1,49 @@
+.outer-card {
+}
+
+.outer-card h1 {
+  text-align: center;
+}
+
+.outer-card form {
+  margin-bottom: 20px;
+}
+
+.outer-box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f7f7f7;
+}
+
+.inner-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.data-field {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+
+.data-field strong {
+  font-weight: bold;
+}
+
+.user-boxes {
+  width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.username-box {
+  flex-basis: 100%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #fff;
+}

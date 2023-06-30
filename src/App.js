@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import UserInput from "./components/userinput/UserInput";
+import Result from "./components/result/result";
+import Data from "./components/Data";
+import Modal from "./components/Modal/Modal";
+import { useState } from "react";
 
 function App() {
+  const [preData, setPreData] = useState(Data);
+  const [resultData, setResultdata] = useState(null);
+  const [isModalOpen, setModalOpen] = useState(null);
+
+  const handleClose = () => {
+    setModalOpen(false);
+  };
+
+  const addData = (data) => {
+    if (data.age === null || data.name.trim() === "" || data.age <= 0) {
+      setResultdata(data);
+      setModalOpen(true);
+    } else {
+      setPreData([...preData, data]);
+    }
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <UserInput addData={addData} />
+      <Modal
+        isOpen={isModalOpen}
+        onClose={handleClose}
+        resultData={resultData}
+      />
+      {preData.length !== 0 && <Result preData={preData} />}
     </div>
   );
 }
